@@ -35,7 +35,7 @@ spec:
       value: ja_JP.utf8
     - name: POSTGRES_INITDB_ARGS
       value: --locale-provider=icu --icu-locale=ja_JP.utf8
-    image: docker.io/library/postgres:alpine
+    image: docker.io/library/postgres:16-alpine
     name: nc-postgres
     volumeMounts:
     - mountPath: /var/lib/postgresql/data
