@@ -1,0 +1,13 @@
+[Unit]
+Description=Nextcloud kubernetes based service
+Before=local-fs.target
+
+[Kube]
+Yaml=%h/services/nextcloud/nextcloud.yaml
+AutoUpdate=registry
+LogDriver=journald
+PublishPort=8080
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target

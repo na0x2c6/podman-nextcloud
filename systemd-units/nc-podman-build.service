@@ -1,0 +1,14 @@
+[Unit]
+Description=Build nextcloud podman image
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/podman pull docker.io/library/nginx:stable docker.io/library/nextcloud:production-fpm
+ExecStart=/usr/bin/podman image build -t localhost/nc-app:latest %h/services/nextcloud/app
+ExecStart=/usr/bin/podman image build -t localhost/nc-nginx:latest %h/services/nextcloud/web
+ExecStartPost=/usr/bin/podman image prune -f
+
+[Install]
+WantedBy=default.target
