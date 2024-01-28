@@ -4,7 +4,11 @@ Before=local-fs.target
 
 [Kube]
 Yaml=%h/services/nextcloud/nextcloud.yaml
-AutoUpdate=registry
+AutoUpdate=nc-redis/registry
+AutoUpdate=nc-postgres/registry
+AutoUpdate=nc-cron/registry
+AutoUpdate=nc-web/local
+AutoUpdate=nc-app/local
 LogDriver=journald
 PublishPort=8080
 
